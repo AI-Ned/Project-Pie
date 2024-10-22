@@ -17,7 +17,7 @@ class getWordsbyCharLen:
         getWordsbyCharLen.jsonFormatter(getWordsbyCharLen.xletterwords)
     
 
-        #print(getWordsbyCharLen.xletterwords)
+
 
     def jsonFormatter(words):
         reference = []

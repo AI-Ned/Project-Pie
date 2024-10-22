@@ -1,4 +1,4 @@
-from api import DictApi
+from archivedCode.api import DictApi
 from piConverter import PiToString as p2s
 from packages.fileController import fileControl
 import json
@@ -16,6 +16,7 @@ def findwords():
     position = 0
     #potential words
     potword = ''
+  
 
     while(position < len(pistring)-4):
         
@@ -23,22 +24,22 @@ def findwords():
             for i in pistring[position:position+5]:
                 potword += i
         
-        #elif(len(potword) >= 5):
+
 
         if(illegalcharacterCombos(potword)== True):
-            #if(DictApi.wordtest(potword) == True):
-            values.append(potword)
+
+            list = fileControl.jsonFetch(potword[0],"json/FiveLetterWords.json")
+            searchlist = set(list)
+            if(potword in searchlist):
+                values.append(potword)
             potword = ""
             position += 1
-            #else:
-             #   potword = ""
-             #   position += 1
-              #  continue
+
         else:
             potword = ""
             position += 1
             continue
-                    #print(potword + " has no illegal characters")
+                    
             
             
     print(values)

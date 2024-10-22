@@ -5,7 +5,7 @@ from packages.fileController import fileControl
 
 class PiToString:
     pi = 0
-    places = 500
+    places = 50000
     letters = fileControl.jsonFetch("letters","json/LetterData.json")[0]
     piLetter = []
 # A function I stole from the web to calculate pi
@@ -74,7 +74,6 @@ class PiToString:
         for i in PiToString.piLetter:
             output = output+i
 
-        #print(output)
         return output    
 
 
