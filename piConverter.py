@@ -1,6 +1,6 @@
 import decimal
 import json
-from fileController import fileReader
+from packages.fileController import fileReader
 
 
 class PiToString:
