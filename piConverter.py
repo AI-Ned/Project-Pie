@@ -1,12 +1,12 @@
 import decimal
 import json
-from packages.fileController import fileReader
+from packages.fileController import fileControl
 
 
 class PiToString:
     pi = 0
     places = 500
-    letters = fileReader.jsonFetch("letters","LetterData.json")[0]
+    letters = fileControl.jsonFetch("letters","json/LetterData.json")[0]
     piLetter = []
 # A function I stole from the web to calculate pi
     def pi():

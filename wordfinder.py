@@ -1,13 +1,13 @@
 from api import DictApi
 from piConverter import PiToString as p2s
-from packages.fileController import fileReader
+from packages.fileController import fileControl
 import json
 
 pistring = p2s.encode()
 values = []
 
 #load in the illegal character combinations.
-illegalSets = fileReader.jsonFetch("non_existent_combinations","json/LetterData.json")
+illegalSets = fileControl.jsonFetch("non_existent_combinations","json/LetterData.json")
 
 #itterate through all of the 5 word values in the converted pi number, discard any letter combinations that have characters combinations that don't exist in the english language
 #any successful letter combinations are then added to the value array. 
@@ -26,14 +26,14 @@ def findwords():
         #elif(len(potword) >= 5):
 
         if(illegalcharacterCombos(potword)== True):
-            if(DictApi.wordtest(potword) == True):
-                values.append(potword)
-                potword = ""
-                position += 1
-            else:
-                potword = ""
-                position += 1
-                continue
+            #if(DictApi.wordtest(potword) == True):
+            values.append(potword)
+            potword = ""
+            position += 1
+            #else:
+             #   potword = ""
+             #   position += 1
+              #  continue
         else:
             potword = ""
             position += 1
